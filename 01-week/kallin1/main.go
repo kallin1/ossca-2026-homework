@@ -36,7 +36,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// setting new Network Namespace
 	// SysProcAttr is used to only child process, so parent process will not be affected by this change
 	cmd.SysProcAttr = &syscall.SysProcAttr{
-		Cloneflags: syscall.CLONE_NEWNET,
+		Unshareflags: syscall.CLONE_NEWNET,
 	}
 
 	// Start the command asynchronously
